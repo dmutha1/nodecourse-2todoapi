@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
 
+const poort = process.env.PORT||3000;
+
 var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
@@ -52,6 +54,6 @@ return res.status(200).send(todo);
 });
 
 
-app.listen(3000,()=>{
-  console.log('Started on port 3000');
+app.listen(port,()=>{
+  console.log(`Started on port ${port}`);
 });
